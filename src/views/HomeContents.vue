@@ -4,7 +4,7 @@ import ColorPalette from "@/assets/images/color_palette.svg?component";
 import Header from "@/components/HeaderComponents.vue";
 
 const router = useRouter();
-const clickButton = (num) => {
+const clickButton = (num: Number) => {
   if (num) {
     router.push("/page" + num);
   }
@@ -25,11 +25,11 @@ const clickButton = (num) => {
           <img src="@/assets/images/marbling_half.png" />
         </Starport>
       </li>
-      <li class="list_contents" @click="clickButton(3)">
+      <!-- <li class="list_contents" @click="clickButton(3)">
         <Starport class="starport" port="3">
           <img src="@/assets/images/marbling.png" />
         </Starport>
-      </li>
+      </li> -->
     </ul>
   </div>
 </template>
@@ -37,7 +37,7 @@ const clickButton = (num) => {
 .main {
   .list_contents {
     width: 100%;
-    height: 200px;
+    height: 100px;
     overflow: hidden;
     .starport {
       height: 100%;
@@ -50,5 +50,12 @@ const clickButton = (num) => {
 }
 [data-starport-proxy]:not([data-starport-landed]) {
   transition-duration: 800ms;
+}
+
+.transition-all,
+[transition-all=""] {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 </style>
